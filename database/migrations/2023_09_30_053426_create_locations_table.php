@@ -16,11 +16,12 @@ class CreateLocationsTable extends Migration
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('latitue');
-            $table->string('longitue');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->string('date');
-            $table->string('time');
-            $table->string('date_time');
+            $table->string('time')->nullable();
+            $table->string('date_time')->nullable();
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Auth\LoginController;
+use App\Http\Controllers\Api\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,20 +20,17 @@ use App\Http\Controllers\Api\Auth\LoginController;
 Route::post('/login', [LoginController::class, 'login']);
 
 
-// Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
-//     return auth()->user();
-// });
 Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::get('loggout', [LoginController::class, 'loggout']);
 
-    Route::get('user', function(){
-        try {
-            return auth()->user();
-        } catch (\Throwable $th) {
-            return response()->json('error', $th->getMessage());
-        }
-    });
+
+    // Send Location From Register User Account
+    Route::post('/send-location', [LocationController::class, 'sendLocation']);
+
 
 });
+
+// Get Location From Any ( public / Non Register)
+Route::get('/get-location', [LocationController::class, 'getLocation']);
 
 

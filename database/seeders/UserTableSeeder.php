@@ -35,7 +35,9 @@ class UserTableSeeder extends Seeder
     private function getUsers()
     {
         return [
-            ['id' =>  '1', 'name' => 'Mizan',      'driver_name' => 'Mizan',       'email' => 'mizan@gmail.com',        'phone' => 12345678,     'route_no' => '4', 'bus_no' => '39'],
+            ['id' =>  1, 'name' => 'Mizan',                 'driver_name' => 'Mizan',               'email' => 'mizan@gmail.com',           'phone' => '12345678',          'route_no' => 4,    'bus_no' => 39],
+            ['id' =>  2, 'name' => 'Anik',                  'driver_name' => 'Anik',                'email' => 'anik@gmail.com',            'phone' => '017677',            'route_no' => 5,    'bus_no' => 40],
+            ['id' =>  3, 'name' => 'Hasan Ali',             'driver_name' => 'Hasan Ali',           'email' => 'hasan@gmail.com',           'phone' => '0171841',           'route_no' => 6,    'bus_no' => 41],
         ];
     }
 }
